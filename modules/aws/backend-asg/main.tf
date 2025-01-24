@@ -220,7 +220,7 @@ resource "aws_autoscaling_traffic_source_attachment" "asg_lb_attach" {
 # ------------------------------------------------------------------------------
 
 module "alloy_queue" {
-  source = "/root/alloy-infra-live/modules/aws/sqs"
+  source = "git::https://github.com/iagonc/alloy-infra-live.git//modules/aws/sqs?ref=main"
 
   queue_name       = "${var.cluster_name}-rebate-webhook-queue"
   delay_seconds    = 0
@@ -232,7 +232,7 @@ module "alloy_queue" {
 # ------------------------------------------------------------------------------
 
 module "alloy_db" {
-  source = "/root/alloy-infra-live/modules/aws/rds"
+  source = "git::https://github.com/iagonc/alloy-infra-live.git//modules/aws/rds?ref=main"
 
   db_identifier = "${var.cluster_name}-db"
   db_name       = "alloy_db"
